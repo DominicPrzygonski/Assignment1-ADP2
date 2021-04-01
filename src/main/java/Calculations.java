@@ -10,20 +10,37 @@
  * 216178991
  */
 public class Calculations {
-   
-    public String print(int grade){
-     
-       if(grade > 98)
-           return "You passed";
-      else if(grade > 50)
-            return "You nearly failed";
-      else if(grade < 49)
-          return "You failed";
-    else
-          return "You need to study";
-        
-    }
+    
+ int number;
+ 
+   // Constructor
+   public Calculations() {
+      this.number = 0;
+   }
 
-  
+   public Calculations(int number) {
+      this.number = number;
+   }
+ 
+   // Getter and setter
+   public int getNumber() {
+      return number;
+   }
+ 
+   public void setNumber(int number) {
+      this.number = number;
+   }
+ 
+   // Public methods
+   public Calculations add(Calculations rhs) {
+      this.number += rhs.number;
+      return this;
+   }
+ 
+   public Calculations div(Calculations rhs) {
+      if (rhs.number == 0) throw new IllegalArgumentException("Cannot divide by 0!");
+      this.number /= rhs.number;
+      return this;
+   }   
     
 }

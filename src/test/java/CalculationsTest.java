@@ -17,17 +17,55 @@ import static org.junit.Assert.*;
  * 216178991
  */
 public class CalculationsTest {
+    private Calculations number1, number2;
     
     public CalculationsTest() {
     }
     
     @BeforeClass
-    public static void setUpClass() {
-    }
+    public void setUp() throws Exception {
+      System.out.println("Run @Before"); 
+      number1 = new Calculations(11);
+      number2 = new Calculations(22);
+   }
     
     @AfterClass
-    public static void tearDownClass() {
-    }
+   public void tearDown() throws Exception {
+      System.out.println("Run @After"); 
+   }
+   
+   @Test
+   public void testGetterSetter() {
+      System.out.println("Run @Test testGetterSetter"); 
+      int value = 33;
+      number1.setNumber(value);
+      assertEquals("error in getter/setter", value, number1.getNumber());
+   }
+ 
+   @Test
+   public void testAdd() {
+      System.out.println("Run @Test testAdd"); 
+      assertEquals("error in add()", 33, number1.add(number2).getNumber());
+      assertEquals("error in add()", 55, number1.add(number2).getNumber());
+   }
+ 
+   @Test
+   public void testDiv() {
+      System.out.println("Run @Test testDiv"); 
+      assertEquals("error in div()", 2, number2.div(number1).getNumber());
+      assertEquals("error in div()", 0, number2.div(number1).getNumber());
+   }
+   
+   @Test(expected = IllegalArgumentException.class)
+   public void testDivByZero() {
+      System.out.println("Run @Test testDivByZero"); 
+      number2.setNumber(0);
+      number1.div(number2);
+   }
+
+    private void assertEquals(String error_in_div, int i, int number) {
+        throw new UnsupportedOperationException("Not supported yet."); 
+}
     
     @Before
     public void setUp() {
@@ -39,9 +77,7 @@ public class CalculationsTest {
 
     @org.junit.Test
     public void testSomeMethod() {
-        Calculations pg = new Calculations();
-        String results = pg.print(98);
-        assertEquals("Incorrect Message","You passed",results);
+        
     }
 
     /**
@@ -58,5 +94,11 @@ public class CalculationsTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
+
+    private void assertEquals(String error_in_gettersetter, int value, int number) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
     
 }
