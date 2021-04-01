@@ -75,6 +75,7 @@ public class AssignmentClassTest {
     }
   
      @Test
+     //Test is disabled
     @Disabled("Disabled until bug #42 has been resolved")
     
     void testWillBeSkipped() {
