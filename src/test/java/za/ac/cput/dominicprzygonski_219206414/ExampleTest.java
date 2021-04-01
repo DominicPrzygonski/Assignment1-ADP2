@@ -14,6 +14,9 @@ import org.junit.jupiter.api.Timeout;
  *
  * @author Dominic przygonski - 219206414
  */
+
+//First run will sometimes timeout and not show the correct errors as their is no target files and it need to create those first so second run will run fine
+
 public class ExampleTest {
     
     private Example testing1;
